@@ -1,1 +1,7 @@
-tetst
+주요 extension
+
+1. live server
+2. open in browser
+3. code runner
+4. print
+
