@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
+    <script>
+        var id_list = ["abc", "def"];
+        var pw_list = ["123", "456"];
+
+        function check_id(id_name) {
+            for(i=0; i<id_list.length; i++){
+                //console.log(id_list[i], pw_list[i])
+                if (id_list[i] == id_name) {
+                    console.log(i)
+                    console.log(id_name, "해당 아이디 찾았음")
+                    return i
+                }
+            }
+            console.log(id_name, "해당 아이디 없음")
+            return -1
+        }
+
+        function submit_pw() {
+            var id_input = document.getElementById("id_input");
+            var pw_id = document.getElementById("pw");
+
+            id_num = check_id(id_input.value);
+
+            if (id_num != -1) {
+                if (pw_id.value == pw_list[id_num]){
+                    return true;
+                }
+                else{
+                    alert("패스워드가 맞지 않습니다.")    
+                    return false;
+                }
+            }
+            else{
+                alert("아이디가 맞지 않습니다.")
+                return false;
+            }
+        }
+    </script>
+
+</head>
+<body>
+   
+    <p style="font-size: 40px;">      Monk Diamond Discovery </p>
+    <p>     The most expensive blue diamond has discovered in siberia </p>
+    <p> 아 이 디 : <input type="text" id="id_input"> </p>
+    <p> 비밀번호 : <input type="password" id="pw"> </p>
+    <a href = "https://www.naver.com" onclick="return submit_pw()"> 여기를 클릭 하세요</a>
+</body>
+</html>
