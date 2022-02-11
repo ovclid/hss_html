@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
+    <script>
+        function submit_pw() {
+            var id_input = document.getElementById("id_input");
+            var pw_id = document.getElementById("pw");
+            
+            if (id_input.value == "haha") {
+                if (pw_id.value == "1234"){
+                    return true;
+                }
+                else{
+                    alert("패스워드가 맞지 않습니다.")    
+                    return false;
+                }
+            }
+            else{
+                alert("아이디가 맞지 않습니다.")
+                return false;
+            }
+        }
+</script>
+</head>
+<body>
+    <p style="font-size: 40px;">      Monk Diamond Discovery </p>
+    <p>     The most expensive blue diamond has discovered in siberia </p>
+    <p> 아 이 디 : <input type="text" id="id_input"> </p>
+    <p> 비밀번호 : <input type="password" id="pw"> </p>
+    <a href = "https://www.naver.com" onclick="return submit_pw()"> 여기를 클릭 하세요</a>
+
+</body>
+</html>
