@@ -1,44 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Monk Diamond</title>
     <style>
         body {
+            margin: 0px;
+        }
+
+        .pad {
+            padding: 25px;
+        }
+
+        .header {
             background-color: lightblue;
+            color: green;
+            height: 100px;
+            font-size: 36pt;
+            text-align: center;
+        }
+
+        .welcome {
+            background-color: plum;
+            color: white;
+            font-size: 16pt;
+            text-align: center;
+            height: 40px;
+            margin: 0px;
+        }
+
+        .main-text {
+            width: 60%;
+            float: left;
+            background-color: beige;
+        }
+
+        .divs {
+            margin: 5px;
+            width: 25%;
+            float: left;
+            border: 4px solid lightblue;
         }
     </style>
     <script>
-        function submit_pw() {
-            var id_input = document.getElementById("id_input");
-            var pw_id = document.getElementById("pw");
-            
-            if (id_input.value == "haha") {
-                if (pw_id.value == "1234"){
-                    return true;
+        var url1 = "https://www.naver.com"
+    </script>
+
+</head>
+
+<body>
+        
+    <div class="header pad">
+        The Monk Diamond Discovery
+    </div>
+    <div>
+        <p class="welcome">
+            Stolen Diamond Discovered in Moscow!
+        </p>
+    </div>
+    <div class="main-text pad">
+        <p>
+            Professor Bairstone and Dr Day have made a sensational discovery.<br />
+            They have discovered the Monk Diamond in a remote cave in Moscow.<br />
+            Professor Bairstone's dog, Ernest, sniffed out the diamond.
+        </p>
+        <p>
+            The jewel was stolen three years ago from the House of Volkov.<br />
+            The prime suspects in the theft were the Bond Brothers.<br />
+            The team thinks the diamond had been hidden by the thieves.<br />
+            They sent this photo from their camp:
+        </p>
+        <img src="team.jpg" alt="The Team" style="height: 150px;" />
+    </div>
+    <div class="divs pad">
+        <img src="diamond.jpg" alt="Diamond" style="width: 150px;" />
+        <p style="text-align: center;">The Monk Diamond</p>
+    </div>
+    <div class="divs pad" style="text-align: center;">
+        Fact File<br />
+        Carats: 300<br />
+        Colour: Green<br />
+        Value: Over £10 million
+    </div>
+ 
+    <div style="clear:both;"> 
+        <h2>Where to move the diamond</h2>
+    </div>
+    <hr>
+    <div>
+        <input type="radio" name="city" value="Moscow" checked="true"> Risbon</label>
+        <input type="radio" name="city" value="Paris"> Paris</label>
+        <input type="radio" name="city" value="London"> London</label>
+        <input type="radio" name="city" value="Rome"> Rome</label>
+        <input type="radio" name="city" value="Istanbul"> Istanbul</label>
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+        <button onclick="checkbox();" style="background-color: pink;"> submit </button>
+        <br>
+    </div>
+   
+    <iframe id = "iframe_id"
+        width="650"
+        height="450"
+        frameborder="1" style="margin:30px; border:0"
+        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyB3GOyRWLUqiI_AwgQV9cpDFM4LSCr3Hxc&origin=Moscow&destination=Lisbon"
+    >
+    </iframe>
+
+    <script>
+        keyValue = "AIzaSyB3GOyRWLUqiI_AwgQV9cpDFM4LSCr3Hxc";
+        function checkbox() {
+            var checkbox_value = document.getElementsByName("city");
+
+            var result = "";
+            for (var i = 0; i < checkbox_value.length; i++) {
+                if (checkbox_value[i].checked == true) {
+                    result = checkbox_value[i].value;
+                    
+                    var des = document.getElementById("iframe_id");
+                    des.src = `https://www.google.com/maps/embed/v1/directions?key=${keyValue}&origin=Moscow&destination=${result}`
+                    return result;
                 }
-                else{
-                    alert("패스워드가 맞지 않습니다.")    
-                    return false;
-                }
-            }
-            else{
-                alert("아이디가 맞지 않습니다.")
-                return false;
             }
         }
-</script>
-</head>
-<body>
-    
-    
-    <p style="font-size: 40px;">      Monk Diamond Discovery </p>
-    <p>     The most expensive blue diamond has discovered in siberia </p>
-    <p> 아 이 디 : <input type="text" id="id_input"> </p>
-    <p> 비밀번호 : <input type="password" id="pw"> </p>
-    <a href = "https://www.naver.com" onclick="return submit_pw()"> 여기를 클릭 하세요</a>
-
+    </script>    
 </body>
-</html>
