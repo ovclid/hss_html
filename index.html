@@ -134,17 +134,20 @@
         <script>
             keyValue = "AIzaSyB3GOyRWLUqiI_AwgQV9cpDFM4LSCr3Hxc";
             function checkbox() {
-                var checkbox_value = document.getElementsByName("city");
+                var desCity = document.getElementsByName("city");
+
                 var result = "";
-                for (var i = 0; i < checkbox_value.length; i++) {
-                    if (checkbox_value[i].checked == true) {
-                        result = checkbox_value[i].value;
+                for (var i = 0; i < desCity.length; i++) {
+                    if (desCity[i].checked == true) {
+                        result = desCity[i].value;
 
                         var des = document.getElementById("iframe_id");
                         des.src = `https://www.google.com/maps/embed/v1/directions?key=${keyValue}&origin=Moscow&destination=${result}`
+                        return result;
                     }
                 }
             }
         </script>
     </div>
+
 </body>
