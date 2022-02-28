@@ -79,76 +79,74 @@
         Value: Over £10 million
     </div>
 
-    <div style="clear:both;"> </div>
-    <br>
-    <hr>
-
-    <h2>The most expensive diamonds in the world</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/RcZATf3Lmb0" title="YouTube video player"
-        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-    </iframe>
-    <br>
-    <hr>
-
-    <div>    
-        <h2>Moving To-Do List</h2>
-    </div>
-    <hr>
-    <input id="box" type="text" value="Type here to add task" /> &nbsp &nbsp &nbsp
-    <input type="button" value="Add item" onclick="addItem();" style="background-color: pink;" />
-    <br/><br/><br/><br/>
-    
-    <div id="list" style="background-color: aqua;"></div>
-    <script>
-        function addItem() {
-            var newItem = document.createElement("div");
-            newItem.innerHTML = document.getElementById("box").value;
-            newItem.onclick = removeItem;
-            document.getElementById("list").appendChild(newItem);
-        }
-        function removeItem() {
-            document.getElementById("list").removeChild(this);
-        }
-    </script>
-    </head>
-
-    <div>
-        <h2>Where to move the Diamond</h2>
-    </div>
-    <hr>
-    <div>
-        <input type="radio" name="city" value="Moscow" checked="true" /> Risbon
-        <input type="radio" name="city" value="Paris" /> Paris
-        <input type="radio" name="city" value="London" /> London
-        <input type="radio" name="city" value="Rome" /> Rome
-        <input type="radio" name="city" value="Istanbul" /> Istanbul
-        &nbsp &nbsp &nbsp
-        <input type="button" value="submit" onclick="checkbox();" style="background-color: pink;" />
+    <div style="clear:both;">
         <br>
+        <hr>
+        <h2>The most expensive diamonds in the world</h2>
+        <iframe width="560" height="350" src="https://www.youtube.com/embed/RcZATf3Lmb0" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+        <br>
+        <hr>
     </div>
 
-    <iframe id="iframe_id" width="650" height="450" style="margin:30px; border:0"
-        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyB3GOyRWLUqiI_AwgQV9cpDFM4LSCr3Hxc&origin=Moscow&destination=Lisbon">
-    </iframe>
+    <div>
+        <h2>Moving To-Do List</h2>
+        <input id="box" type="text" value="Type here to add a task" /> &nbsp &nbsp &nbsp
+        <input type="button" value="Add item" onclick="addItem();" style="background-color: pink;" />
+        <br /><br />
+        <div id="list" style="background-color: aqua;"></div>
+        <br /><br />
 
-    <script>
-        keyValue = "AIzaSyB3GOyRWLUqiI_AwgQV9cpDFM4LSCr3Hxc";
-        function checkbox() {
-            var checkbox_value = document.getElementsByName("city");
+        <script>
+            function addItem() {
+                var newItem = document.createElement("div");
+                newItem.innerHTML = document.getElementById("box").value;
+                newItem.onclick = removeItem;
+                document.getElementById("list").appendChild(newItem);
+            }
+            function removeItem() {
+                document.getElementById("list").removeChild(this);
+            }
+        </script>
+    </div>
 
-            var result = "";
-            for (var i = 0; i < checkbox_value.length; i++) {
-                if (checkbox_value[i].checked == true) {
-                    result = checkbox_value[i].value;
+    <div>
+        <hr>
+        <h2>Where to move the Diamond</h2>
+        <div>
+            <input type="radio" name="city" value="Moscow" checked="true" /> Risbon
+            <input type="radio" name="city" value="Paris" /> Paris
+            <input type="radio" name="city" value="London" /> London
+            <input type="radio" name="city" value="Rome" /> Rome
+            <input type="radio" name="city" value="Istanbul" /> Istanbul
+            &nbsp &nbsp &nbsp
+            <input type="button" value="submit" onclick="checkbox();" style="background-color: pink;" />
+            <br>
+        </div>
 
-                    var des = document.getElementById("iframe_id");
-                    des.src = `https://www.google.com/maps/embed/v1/directions?key=${keyValue}&origin=Moscow&destination=${result}`
-                    return result;
+        <iframe id="iframe_id" width="650" height="450" style="margin:30px; border:0"
+            src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyB3GOyRWLUqiI_AwgQV9cpDFM4LSCr3Hxc&origin=Moscow&destination=Lisbon">
+        </iframe>
+
+        <script>
+            keyValue = "AIzaSyB3GOyRWLUqiI_AwgQV9cpDFM4LSCr3Hxc";
+            function checkbox() {
+                var checkbox_value = document.getElementsByName("city");
+
+                var result = "";
+                for (var i = 0; i < checkbox_value.length; i++) {
+                    if (checkbox_value[i].checked == true) {
+                        result = checkbox_value[i].value;
+
+                        var des = document.getElementById("iframe_id");
+                        des.src = `https://www.google.com/maps/embed/v1/directions?key=${keyValue}&origin=Moscow&destination=${result}`
+                        return result;
+                    }
                 }
             }
-        }
-    </script>
-
-
+        </script>
+    </div>
 </body>
