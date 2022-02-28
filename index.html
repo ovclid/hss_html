@@ -45,7 +45,7 @@
 </head>
 
 <body>
-        
+
     <div class="header pad">
         The Monk Diamond Discovery
     </div>
@@ -66,7 +66,7 @@
             The team thinks the diamond had been hidden by the thieves.<br />
             They sent this photo from their camp:
         </p>
-        <img src="Team.jpg" alt="The Team" style="height: 150px;" />
+        <img src="team.jpg" alt="The Team" style="height: 150px;" />
     </div>
     <div class="divs pad">
         <img src="diamond.jpg" alt="Diamond" style="width: 150px;" />
@@ -78,28 +78,49 @@
         Colour: Green<br />
         Value: Over £10 million
     </div>
- 
-    <div style="clear:both;"> 
-        <h2>Where to move the diamond</h2>
+
+    <div style="clear:both;">
+        <h2>To-Do List</h2>
     </div>
     <hr>
+    <input type="text" id="box" value="Type here to add task" />
+    <br />
+    <input type="button" value="Add item" onclick="addItem();" />
+    <br />
+    <div id="list"></div>
+
+    <script>
+        function addItem() {
+            var newItem = document.createElement("div");
+            newItem.innerHTML = document.getElementById("box").value;
+            newItem.onclick = removeItem;
+            document.getElementById("list").appendChild(newItem);
+        }
+        function removeItem() {
+            document.getElementById("list").removeChild(this);
+        }
+    </script>
+    </head>
+
+    
+    <div style="clear:both;">
+        <h2>Where to move the Diamond</h2>
+    </div>
+    <hr>
+
     <div>
         <input type="radio" name="city" value="Moscow" checked="true"> Risbon</label>
         <input type="radio" name="city" value="Paris"> Paris</label>
         <input type="radio" name="city" value="London"> London</label>
         <input type="radio" name="city" value="Rome"> Rome</label>
         <input type="radio" name="city" value="Istanbul"> Istanbul</label>
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
         <button onclick="checkbox();" style="background-color: pink;"> submit </button>
         <br>
     </div>
-   
-    <iframe id = "iframe_id"
-        width="850"
-        height="650"
-        frameborder="1" style="margin:30px; border:0"
-        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyB3GOyRWLUqiI_AwgQV9cpDFM4LSCr3Hxc&origin=Moscow&destination=Lisbon"
-    >
+
+    <iframe id="iframe_id" width="650" height="450" frameborder="1" style="margin:30px; border:0"
+        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyB3GOyRWLUqiI_AwgQV9cpDFM4LSCr3Hxc&origin=Moscow&destination=Lisbon">
     </iframe>
 
     <script>
@@ -111,12 +132,12 @@
             for (var i = 0; i < checkbox_value.length; i++) {
                 if (checkbox_value[i].checked == true) {
                     result = checkbox_value[i].value;
-                    
+
                     var des = document.getElementById("iframe_id");
                     des.src = `https://www.google.com/maps/embed/v1/directions?key=${keyValue}&origin=Moscow&destination=${result}`
                     return result;
                 }
             }
         }
-    </script>    
+    </script>
 </body>
