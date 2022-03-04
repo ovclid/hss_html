@@ -79,26 +79,32 @@
         Value: Over £10 million
     </div>
 
-    <div style="clear:both;">
-        <br>
-        <hr>
+
+    <!-- CSS float 속성을 이용한 layout 설정 초기화 -->
+    <div style="clear:both;"> <div>
+
+
+    <!-- 유튜브 영상 가져오기 -->
+    <div>
+        <br> <hr>
         <h2>The most expensive diamonds in the world</h2>
         <iframe width="560" height="350" src="https://www.youtube.com/embed/RcZATf3Lmb0" title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
-        <br>
-        <hr>
+        <br> <hr>
     </div>
 
+
+    <!-- 자바스크립 사용 예제 : 해야 할 목록(추가, 삭제)-->
     <div>
         <h2>Moving To-Do List</h2>
         <input id="box" type="text" value="Type here to add a task" /> &nbsp &nbsp &nbsp
         <input type="button" value="Add item" onclick="addItem();" style="background-color: pink;" />
-        <br /><br />
+        <br> <br>
         <div id="list" style="background-color: aqua;"></div>
-        <br /><br />
+        <br> <br>
 
         <script>
             function addItem() {
@@ -112,10 +118,13 @@
             }
         </script>
     </div>
-
+ 
+    <!-- 구글API 사용 예제 : 구글지도 가져오기 -->
     <div>
-        <hr>
+        <br> <hr>
         <h2>Where to move the Diamond</h2>
+
+        <!-- 라디오 버튼을 이용하여 목적지 변경하기 -->
         <div>
             <input type="radio" name="city" value="Moscow" checked="true" /> Risbon
             <input type="radio" name="city" value="Paris" /> Paris
@@ -123,7 +132,7 @@
             <input type="radio" name="city" value="Rome" /> Rome
             <input type="radio" name="city" value="Istanbul" /> Istanbul
             &nbsp &nbsp &nbsp
-            <input type="button" value="submit" onclick="checkbox();" style="background-color: pink;" />
+            <input type="button" value="submit" onclick="change();" style="background-color: pink;" />
             <br>
         </div>
 
@@ -131,19 +140,15 @@
             src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyB3GOyRWLUqiI_AwgQV9cpDFM4LSCr3Hxc&origin=Moscow&destination=Lisbon">
         </iframe>
 
+        <!-- 자바스크립트를 이용하여 목적지 변경하기 -->
         <script>
             keyValue = "AIzaSyB3GOyRWLUqiI_AwgQV9cpDFM4LSCr3Hxc";
-            function checkbox() {
+            function change() {
                 var desCity = document.getElementsByName("city");
-
-                var result = "";
                 for (var i = 0; i < desCity.length; i++) {
                     if (desCity[i].checked == true) {
-                        result = desCity[i].value;
-
                         var des = document.getElementById("iframe_id");
-                        des.src = `https://www.google.com/maps/embed/v1/directions?key=${keyValue}&origin=Moscow&destination=${result}`
-                        return result;
+                        des.src = `https://www.google.com/maps/embed/v1/directions?key=${keyValue}&origin=Moscow&destination=${desCity[i].value}`
                     }
                 }
             }
